@@ -1,9 +1,9 @@
 import subprocess
 
 
-def run_playbook(playbook_filename, hosts, playbook_cmd='ansible-playbook', private_key=None, extra_options=None, **extra_vars):
+def run_playbook(playbook_filename, hosts, playbook_command='ansible-playbook', private_key=None, extra_options=None, extra_vars=None):
 
-    command = construct_playbook_command(playbook_filename, hosts, playbook_cmd, private_key, extra_vars)
+    command = construct_playbook_command(playbook_filename, hosts, playbook_command=playbook_command, private_key=private_key,extra_options=extra_options, extra_vars=extra_vars)
 
     process = subprocess.Popen(command, universal_newlines=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
@@ -29,7 +29,7 @@ def construct_playbook_command(playbook_filename, hosts, playbook_command='ansib
         command.append('--private-key={}'.format(private_key))
 
     if extra_vars:
-        vars = ' '.join("{}={}".format(key, value) for (key, value) in extra_vars.keys())
+        vars = '"' + ' '.join("{}={}".format(key, value) for (key, value) in sorted(extra_vars.items())) + '"'
         command += ['--extra-vars', vars]
 
     if not extra_options:
@@ -38,7 +38,7 @@ def construct_playbook_command(playbook_filename, hosts, playbook_command='ansib
     if isinstance(extra_options, str):
         command.append(extra_options)
     elif isinstance(extra_options, list):
-        command.extend(extra_options)
+        command += extra_options
     else:
         raise TypeError("extra_options must be str or list.")
 
