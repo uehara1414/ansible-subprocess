@@ -60,7 +60,7 @@ class CommandTest(unittest.TestCase):
                 'ansible-playbook',
                 'tests/playbooks/simple-playbook.yml',
                 '-i',
-                '127.0.0.1,127.0.0.2,'
+                '127.0.0.1,127.0.0.2,',
                 '--extra-vars',
                 '"extra1=var1 extra2=var2"'
                 ]
