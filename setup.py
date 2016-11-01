@@ -16,7 +16,7 @@ setup(
     license = "MIT License",
     keywords = "python Ansible subprocess",
     url = "https://github.com/uehara1414/ansible-subprocess",
-    packages=['ansible-subprocess'],
+    packages=['ansible_subprocess'],
     package_dir={'ansible_subprocess': 'ansible_subprocess'},
     classifiers = [
         'Programming Language :: Python',
