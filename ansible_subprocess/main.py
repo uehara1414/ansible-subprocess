@@ -25,9 +25,12 @@ def construct_playbook_command(playbook_filename, hosts, playbook_command='ansib
         hosts,
     ]
 
+    if private_key:
+        command.append('--private-key={}'.format(private_key))
+
     if extra_vars:
         vars = ' '.join("{}={}".format(key, value) for (key, value) in extra_vars.keys())
-        command.extend(['--extra-vars', vars])
+        command += ['--extra-vars', vars]
 
     if not extra_options:
         return command
@@ -55,6 +58,7 @@ def construct_ping_command(host, ansible_command='ansible'):
 
     command = [
         ansible_command,
+        'all',
         host,
         '-m',
         'ping'
