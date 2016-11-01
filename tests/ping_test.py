@@ -10,7 +10,8 @@ class PingCommandTest(unittest.TestCase):
             command,
             [
                 'ansible',
-                '127.0.0.1',
+                'all',
+                '8.8.8.8',
                 '-m',
                 'ping'
                 ]
@@ -22,7 +23,8 @@ class PingCommandTest(unittest.TestCase):
             command,
             [
                 '/bin/ansible',
-                '127.0.0.1',
+                'all',
+                '8.8.8.8',
                 '-m',
                 'ping'
                 ]
