@@ -53,7 +53,8 @@ class CommandTest(unittest.TestCase):
         )
 
     def test_construct_playbook_command_with_extra_vars(self):
-        command = construct_playbook_command('tests/playbooks/simple-playbook.yml', ['127.0.0.1', '127.0.0.2'], {"extra1": "var1", "extra2": "var2"})
+        command = construct_playbook_command('tests/playbooks/simple-playbook.yml', ['127.0.0.1', '127.0.0.2'], extra_vars={"extra1": "var1", "extra2": "var2"})
+        print(command)
         self.assertEqual(
             command,
             [
@@ -87,7 +88,7 @@ class CommandTest(unittest.TestCase):
                 'ansible-playbook',
                 'tests/playbooks/simple-playbook.yml',
                 '-i',
-                '127.0.0.1,'
+                '127.0.0.1,',
                 '--private-key=/home/foo/id_rsa',
                 '--syntax-check'
                 ]

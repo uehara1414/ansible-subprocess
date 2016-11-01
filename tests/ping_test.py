@@ -29,12 +29,3 @@ class PingCommandTest(unittest.TestCase):
                 'ping'
                 ]
         )
-
-
-class PingTest(unittest.TestCase):
-
-    def test_ping_to_localhost(self):
-        status, stdout, stderr = run_ping('8.8.8.8')
-        self.assertEqual(status, 0)
-        self.assertTrue('pong' in stdout)
-        self.assertEqual(stderr, '')
