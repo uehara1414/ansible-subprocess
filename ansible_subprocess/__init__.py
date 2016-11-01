@@ -1,2 +1,1 @@
-from .main import run_playbook
-
+from .main import run_playbook, run_ping
