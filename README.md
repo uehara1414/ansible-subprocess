@@ -6,7 +6,7 @@ ansible-subprocess run Ansible dynamically via the subprocess module.
 ## Demo
 
 ```python
-from ansible_subprocess import run_playbook
+from ansible_subprocess import run_playbook, run_ping
 status, stdout, stderr = run_playbook('playbooks/sample.yml', 'web')
 status, stdout, stderr = run_playbook('playbooks/sample2.yml',
                                       ['127.0.0.1', '127.0.0.2'],
