@@ -8,7 +8,7 @@ if os.path.exists("README.md"):
 
 setup(
     name="ansible-subprocess",
-    version="0.2.0",
+    version="0.3.0",
     author="uehara1414",
     author_email="",
     description=("Using Ansible from python subprocess."),
