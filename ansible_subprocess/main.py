@@ -67,6 +67,7 @@ def construct_ping_command(host, ansible_command='ansible'):
     command = [
         ansible_command,
         'all',
+        '-i',
         host,
         '-m',
         'ping'
