@@ -12,7 +12,7 @@ status, stdout, stderr = run_playbook('playbooks/sample2.yml',
                                       ['127.0.0.1', '127.0.0.2'],
                                       extra_vars={'var1': 'hoge', 'var2': 'fuga'},
                                       extra_options=['--syntax-check'])
-status, stdout, stderr = run_ping('8.8.8.8')
+status, stdout, stderr = run_ping(['8.8.8.8'])
 ```
 
 ## Installation
