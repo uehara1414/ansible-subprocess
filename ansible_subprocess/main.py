@@ -35,7 +35,7 @@ def construct_playbook_command(playbook_filename, hosts, playbook_command='ansib
         command.append('--private-key={}'.format(private_key))
 
     if extra_vars:
-        vars = '"' + ' '.join("{}={}".format(key, value) for (key, value) in sorted(extra_vars.items())) + '"'
+        vars = ' '.join("{}={}".format(key, value) for (key, value) in sorted(extra_vars.items()))
         command += ['--extra-vars', vars]
 
     if not extra_options:
